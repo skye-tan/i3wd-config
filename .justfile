@@ -1,13 +1,19 @@
 [private]
-@default:
-    just --list
+default:
+    @just --choose --unsorted
 
-# copy the configuration files to the designated target
-apply target='~/.config/':
+# copy the configuration files to the designated target.
+apply target='~/.config':
     cp -r config/i3 {{target}}
     cp -r config/i3status {{target}}
     cp -r config/i3blocks {{target}}
 
-# print help
-@help:
-    just --list
+# take a copy of the current configuration files.
+store target='~/.config':
+    cp -r {{target}}/i3 config/
+    cp -r {{target}}/i3status config/
+    cp -r {{target}}/i3blocks config/
+
+# print help.
+help:
+    @just --list --unsorted
