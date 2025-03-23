@@ -2,7 +2,7 @@
 @default:
     just --list
 
-# copy the configuration files to the designated path
+# copy the configuration files to the designated target
 apply target='~/.config/':
     cp -r config/i3 {{target}}
     cp -r config/i3status {{target}}
