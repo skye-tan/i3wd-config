@@ -1,0 +1,21 @@
+# Global properties
+separator=true
+separator_block_width=15
+
+[ip]
+command=hostname -i | awk '{ print "IP:" $2 }'
+interval=once
+color=#00DDFF
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
+
+[battery]
+command=./battery-status.sh
+interval=10
+
+[volume]
+command=./volume-status.sh
+interval=once
+signal=10
