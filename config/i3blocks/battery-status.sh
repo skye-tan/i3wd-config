@@ -37,8 +37,11 @@ else
         echo "$STATUS_CHR $PERCENTAGE" && echo ""
         echo "$COLOR_YELLOW"
 
-        if [[ ${PERCENTAGE%?} -gt 10 ]]; then
-            rm -f "$NOTIFY_FILE"
+        if [[ -f "$NOTIFY_FILE" ]]; then
+            if [[ ${PERCENTAGE%?} -gt 10 ]]; then
+                rm -f "$NOTIFY_FILE"
+                dunstctl close-all
+            fi
         fi
     fi
 fi
