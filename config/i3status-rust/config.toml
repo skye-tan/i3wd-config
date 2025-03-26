@@ -1,0 +1,30 @@
+
+[theme]
+theme = "modern"
+[icons]
+icons = "awesome6"
+
+[[block]]
+block = "net"
+format = " $icon $ip ^icon_net_down$speed_down.eng(prefix:K) ^icon_net_up$speed_up.eng(prefix:K) "
+[block.theme_overrides]
+idle_bg = "#00CCDD"
+idle_fg = "#000000"
+
+[[block]]
+block = "time"
+[block.theme_overrides]
+idle_fg = "#FFFFFF"
+
+[[block]]
+block = "battery"
+
+[[block]]
+block = "sound"
+format = " $icon  {$volume.eng(w:2) |}"
+show_volume_when_muted = true
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+[block.theme_overrides]
+idle_fg = "#FFFFFF"
